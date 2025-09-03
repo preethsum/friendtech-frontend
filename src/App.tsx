@@ -1,20 +1,13 @@
-import { useState, useMemo } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import {
   ConnectionProvider,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
-import {
-  WalletModalProvider,
-  WalletDisconnectButton,
-  WalletMultiButton,
-} from "@solana/wallet-adapter-react-ui";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
 import {
   PhantomWalletAdapter,
-  SolflareWalletAdapter,
   // Add other wallet adapters you want to support
 } from "@solana/wallet-adapter-wallets";
 
@@ -23,6 +16,7 @@ import "@solana/wallet-adapter-react-ui/styles.css";
 import "./App.css";
 import Home from "./pages/Home";
 import Navbar from "./layout/Navbar";
+import { useMemo } from "react";
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;

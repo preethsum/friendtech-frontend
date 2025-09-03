@@ -1,15 +1,6 @@
 import { useForm } from "react-hook-form";
-import { useWallet } from "@solana/wallet-adapter-react";
-import {
-  ASSOCIATED_TOKEN_PROGRAM_ID,
-  getAssociatedTokenAddressSync,
-  TOKEN_2022_PROGRAM_ID,
-  TOKEN_PROGRAM_ID,
-} from "@solana/spl-token";
-import { BN } from "@coral-xyz/anchor";
-import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
-import * as anchor from "@coral-xyz/anchor";
-import { SYSTEM_PROGRAM_ID } from "@coral-xyz/anchor/dist/cjs/native/system";
+
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import useFriendTechSDK from "../hooks/useFriendTechSDK";
 // import { PinataSDK } from "pinata";
 import {
@@ -57,10 +48,6 @@ const CreateAccount = () => {
 
   const sdk = useFriendTechSDK();
 
-  let creatorAccount: anchor.web3.PublicKey;
-  let key: anchor.web3.PublicKey;
-  let vault: anchor.web3.PublicKey;
-
   const onSubmit = async (data: Inputs) => {
     // if (!data.image) return;
     // const urlResponse = await fetch(
@@ -91,7 +78,7 @@ const CreateAccount = () => {
         slope: data.slope,
       });
 
-      if (res.success) {
+      if (res.success || loading) {
         setLoading(false);
         let res = confirm("Your account is created");
         if (res) {
