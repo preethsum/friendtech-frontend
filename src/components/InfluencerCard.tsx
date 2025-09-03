@@ -89,6 +89,7 @@ const BuyKeys = ({ influencerPubkey }: { influencerPubkey: string }) => {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle></DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 ">
           <div className="grid gap-3">
